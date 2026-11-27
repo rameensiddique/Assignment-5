@@ -42,10 +42,10 @@ ui <- dashboardPage(
     
           box(
             title = "Variable Descriptions",
-            width = 12,
+            width = 6,
             
             p("ID: Patient Identifier"),
-            p("TRTMT: Treatmeant assigned (Digoxin or Placebo"),
+            p("TRTMT: Treatmeant assigned (Digoxin or Placebo)"),
             p("Age: Patient age in years"),
             p("SEX: Sex of the patient"),
             p("BMI: Body Mass Index"),
@@ -57,7 +57,7 @@ ui <- dashboardPage(
          
           box(
             title = "Outcome Variables",
-            width = 12,
+            width = 6,
             
             p("WHF: Worsening heart failure"),
             p("HOSP: Hospitilisation"),
@@ -68,7 +68,7 @@ ui <- dashboardPage(
         
          box(
            title = "Baseline Risk Factors",
-           width = 12,
+           width = 6,
            
            p("HYPERTEN: History of hypertension"),
            p("CVD: Cardiovascular disease history"),
