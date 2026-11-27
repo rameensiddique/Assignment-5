@@ -67,7 +67,7 @@ ui <- dashboardPage(
           ),
         
          box(
-           title = "Bsaeline Risk Factors",
+           title = "Baseline Risk Factors",
            width = 12,
            
            p("HYPERTEN: History of hypertension"),
