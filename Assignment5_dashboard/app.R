@@ -1,4 +1,4 @@
-install.packages("shinydashboard")
+
 library(shinydashboard)
 
 ui <- dashboardPage(
