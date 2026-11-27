@@ -4,7 +4,16 @@ dig <- read.csv("DIG.csv")
 
 ui <- dashboardPage(
   dashboardHeader(title = "DIG Trial Dataset"),
-  dashboardSidebar(),
+  dashboardSidebar(
+    
+    menuItem("Home", tabName = "home", icon = icon("home")),
+    
+    menuItem("Variable Explorer", tabName = "variables", icon = icon("search")),
+    
+    menuItem("Relationships", tabName = "relationships", icon = icon("chart-line")),
+    
+    menuItem("Outcomes",tabName = "outcomes", icon = icon("heartbeat"))
+  ),
   dashboardBody(
     
     box(
