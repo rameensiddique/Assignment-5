@@ -76,7 +76,20 @@ ui <- dashboardPage(
          )
       
         )
-      )
+      ),
+      
+      tabItem(tabName = "variables",
+              fluidRow(
+                box(title = "Select a variable:",
+                    width = 12,
+                    
+                    selectInput("variable", "Choose a variable:", choices = names(dig))),
+                
+                box(title = "Summary",
+                    width = 12,
+                    
+                    verbatimTextOutput("Summary"))
+              ))
       
     ) 
   )
@@ -90,6 +103,10 @@ server <- function(input, output){
   
   output$Variables <- renderText({
     paste("Number of variables:", ncol(dig))
+  })
+  
+  output$Summary <- renderPrint({
+    summary(dig[[input$variable]])
   })
 }
 
