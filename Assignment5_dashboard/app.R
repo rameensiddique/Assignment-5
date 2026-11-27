@@ -88,7 +88,12 @@ ui <- dashboardPage(
                 box(title = "Summary",
                     width = 12,
                     
-                    verbatimTextOutput("Summary"))
+                    verbatimTextOutput("Summary")),
+                
+                box(title = "Plot",
+                    width = 12,
+                    
+                    plotOutput("Plot"))
               ))
       
     ) 
@@ -108,6 +113,26 @@ server <- function(input, output){
   output$Summary <- renderPrint({
     summary(dig[[input$variable]])
   })
-}
+  
+  output$Plot <- renderPlot({
+    
+    if(is.numeric(dig[[input$variable]])){
+      
+      hist(
+        dig[[input$variable]],
+        main = paste("Histogram showing", input$variable),
+        xlab = input$variable,
+        col = "#8856a7"
+      )
+    } else{
+      
+      barplot(
+        table(dig[[input$variable]]),
+        main = paste("Bar chart showing", input$variable),
+        col = "#8856a7"
+      )
+    }
+  })
+} 
 
 shinyApp(ui, server)
