@@ -1,39 +1,21 @@
 #install.packages("shinydashboard")
 library(shinydashboard)
+library(dplyr)
+
 dig <- read.csv("DIG.csv")
 
-dig$TRTMT <- factor(dig$TRTMT,
-                       levels = c(0,1),
-                       labels = c("Placebo", "Treatment")) 
-
-dig$SEX <- factor(dig$SEX,
-                     levels = c(1, 2),
-                     labels = c("Male", "Female"))
-
-dig$HYPERTEN <- factor(dig$HYPERTEN,
-                          levels = c(0, 1),
-                          labels = c("No", "Yes"))
-
-dig$CVD <- factor(dig$CVD,
-                     levels = c(0, 1),
-                     labels = c("No", "Yes"))
-
-dig$WHF <- factor(dig$WHF,
-                     levels = c(0, 1),
-                     labels = c("No", "Yes"))
-
-dig$DIG <- factor(dig$DIG,
-                     levels = c(0, 1),
-                     labels = c("No", "Yes"))
-
-dig$HOSP <- factor(dig$HOSP,
-                      levels = c(0, 1),
-                      labels = c("No", "Yes"))
-
-
-dig$DEATH <- factor(dig$DEATH,
-                       levels = c(0,1),
-                       labels = c("Alive", "Death")) 
+dig <- dig%>%
+  mutate(
+    TRTMT= factor(TRTMT, levels= c(0, 1), labels= c("Placebo", "Treatment")),
+    SEX= factor(SEX, levels= c(1, 2), labels= c("Male", "Female")),
+    DEATH= factor(DEATH, levels= c(0, 1), labels= c("Alive", "Death")),
+    HYPERTEN= factor(HYPERTEN, levels= c(0, 1), labels= c("No", "Yes")),
+    CVD= factor(CVD, levels= c(0, 1), labels= c("No", "Yes")),
+    WHF= factor(WHF, levels= c(0, 1), labels= c("No", "Yes")),
+    DIG= factor(DIG, levels= c(0, 1), labels= c("No", "Yes")),
+    HOSP= factor(HOSP, levels= c(0, 1), labels= c("No", "Yes"))
+  ) 
+ 
 
 ui <- dashboardPage(
   
